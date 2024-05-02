@@ -1,1 +1,3 @@
-{Hello, Used}{Hi, Used}
+{Hello, Used as a greeting}
+{Hi, Used as a greeting}
+{Punch, To hit someone/somebody with your fist.}
