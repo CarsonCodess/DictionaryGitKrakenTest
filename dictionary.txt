@@ -1,2 +1,1 @@
-{Hello, Used as a greeting.}
-{Hi, Used as a greeting.}
+{Hello, Used}{Hi, Used}

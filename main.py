@@ -2,11 +2,18 @@ import time
 
 def add(addWord, addDefinition):
     dictionaryFile = open("dictionary.txt", "a")
-    dictionaryFile.write("{" + str(addWord) + ", " + str(addDefinition) + "}\n")
+    dictionaryFile.write("{" + str(addWord) + ", " + str(addDefinition) + "} ")
 
 def read():
     dictionaryFile = open("dictionary.txt", "r")
     print(dictionaryFile.read())
+
+def remove(removeWord):
+    dictionaryFile = open("dictionary.txt", "r+")
+    readFile = dictionaryFile.read()
+    wordIndex = readFile.index(str(removeWord))
+    endBracketIndex = (readFile[wordIndex:]).index("}")
+    dictionaryFile.write(readFile[0: wordIndex-1] + readFile[endBracketIndex:])
 
 def main():
     userInput = ""
@@ -21,12 +28,19 @@ def main():
             if(confirm == "y"):
                 add(word, definition)
             elif(confirm == "n"):
-                print("Okay")
+                print("Okay.")
                 time.sleep(3)
                 main()
         elif (userInput == "remove"):
-            #add code
-            print("Remove")
+            word = input("Enter the word: ")
+            confirm = input(f"To confirm, you would like to remove the word \"{word}\"? (y/n)")
+            if(confirm == "y"):
+                remove(word)
+            elif(confirm == "n"):
+                print("Okay.")
+                time.sleep(3)
+                main()
+            remove(word)
         elif (userInput == "check"):
             print("Check")
         elif (userInput == "read"):
