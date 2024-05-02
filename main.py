@@ -2,7 +2,7 @@ import time
 
 def add(addWord, addDefinition):
     with open("dictionary.txt", "a") as dictionaryFile:
-        dictionaryFile.write("{" + str(addWord) + ", " + str(addDefinition) + "}\n")
+        dictionaryFile.write(str(addWord) + ", " + str(addDefinition) + "\n")
     main()
 
 def read():
@@ -15,8 +15,7 @@ def remove(removeWord):
         lines = dictionaryFile.readlines()
     with open("dictionary.txt", "w") as dictionaryFile:
         for line in lines:
-            print(line)
-            if removeWord not in line:
+            if removeWord not in line[0:line.index(",")]:
                 dictionaryFile.write(line)
     main()
 
